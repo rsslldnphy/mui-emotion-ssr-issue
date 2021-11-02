@@ -1,12 +1,26 @@
 import React from "react";
-import { Route } from "react-router-dom";
 import * as UI from "@mui/material";
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 
 const App = () => {
   return (
-    <UI.Box>
-      <UI.Typography variant="h1">Lorem ipsum</UI.Typography>
-    </UI.Box>
+    <>
+      <div
+        css={css`
+          color: red;
+        `}
+      >
+        Lorem ipsum
+      </div>
+      <UI.Box
+        css={css`
+          color: green;
+        `}
+      >
+        Lorem ipsum
+      </UI.Box>
+    </>
   );
 };
 

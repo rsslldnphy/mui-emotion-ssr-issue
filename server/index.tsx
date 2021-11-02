@@ -14,29 +14,11 @@ import createEmotionServer from "@emotion/server/create-instance";
 import * as proxy from "http-proxy-middleware";
 import App from "../src/App";
 import * as theme from "../src/theme";
-import dotenv from "dotenv";
-import livereload from "livereload";
-
-dotenv.config({ path: `.env` });
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 
 const buildpath = process.env.NODE_ENV === "development" ? "dist" : "build";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-
-if (process.env.NODE_ENV === "development") {
-  const liveReloadServer = livereload.createServer();
-  liveReloadServer.watch(buildpath);
-
-  app.use(
-    /(:?js|css).map$/,
-    proxy.createProxyMiddleware({
-      target: "http://localhost:3002",
-      changeOrigin: true,
-    })
-  );
-}
 
 app.get("/", async (req, res) => {
   try {
