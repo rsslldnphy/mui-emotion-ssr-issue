@@ -1,6 +1,5 @@
 import React from "react";
 import * as UI from "@mui/material";
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
 const App = () => {
