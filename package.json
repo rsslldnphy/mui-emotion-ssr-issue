@@ -1,0 +1,81 @@
+{
+  "name": "mui-emotion-ssr-issue",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@craco/craco": "^6.4.0",
+    "@emotion/react": "^11.5.0",
+    "@emotion/server": "^11.4.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.5",
+    "@mui/lab": "^5.0.0-alpha.53",
+    "@mui/material": "^5.0.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "babel-loader": "8.1.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1"
+  },
+  "scripts": {
+    "start": "PORT=3002 BROWSER=none NODE_ENV=development craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
+    "server:build": "NODE_ENV=development webpack --config webpack.server.js --mode=development -w",
+    "server:start": "NODE_ENV=development nodemon ./build/server/index.js --watch server/index.tsx --delay 2.5",
+    "dev": "concurrently \"yarn:start\" \"yarn:server:build\" \"yarn:server:start\"",
+    "graphql:generate": "graphql-codegen --config graphql-codegen.yml"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-optional-chaining": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@babel/preset-react": "^7.16.0",
+    "@babel/preset-typescript": "^7.16.0",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@emotion/babel-preset-css-prop": "^11.2.0",
+    "@types/express": "^4.17.13",
+    "@types/livereload": "^0.9.1",
+    "@types/lodash": "^4.14.176",
+    "@types/react-router-dom": "^5.3.2",
+    "babel-loader": "8.1.0",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-macros": "^3.1.0",
+    "babel-plugin-module-resolver": "^4.1.0",
+    "concurrently": "^6.3.0",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.14",
+    "prettier": "^2.4.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-node-externals": "^3.0.0"
+  }
+}
